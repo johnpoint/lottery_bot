@@ -10,8 +10,8 @@
 help - 帮助
 join - 参与抽奖
 list - 显示参与名单
-clear - [admin]
-lottery - [admin]
+clear - 清空名单[admin]
+lottery - 开奖！[admin]
 ```
 
 ## 使用 ##
@@ -30,4 +30,8 @@ pip install pytelegramapi
 python main.py
 ```
 
+**python 2.7测试通过，python3可能会出现奇奇怪怪的问题哦～**
 
+## LICENSE ##
+
+[GNU General Public License v3.0](https://github.com/johnpoint/lottery_bot/blob/master/LICENSE)
