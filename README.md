@@ -7,9 +7,9 @@
 命令
 
 ```
-help - 
-join - 
-list - 
+help - 帮助
+join - 参与抽奖
+list - 显示参与名单
 clear - [admin]
 lottery - [admin]
 ```
