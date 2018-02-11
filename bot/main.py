@@ -30,10 +30,14 @@ def send_join(message):
 
 @bot.message_handler(commands=['list'])
 def send_list(message):
-    r = join.read_list()
-    num = len(open('slist','r').readlines())
-    rr = u'%s \n\n 目前有%s个用户参与抽奖！'%(r,num)
-    bot.reply_to(message,rr)
+if message.chat.type == “private”:
+        bot.send_chat_action(message.chat.id, 'typing')
+        r = join.read_list()
+        num = len(open('slist','rU').readlines())
+        rr = u'%s \n\n 目前共有%s人参与抽奖哦'%(r,num)
+        bot.reply_to(message,rr)
+    else:
+        bot.send_message(chat_id=message.chat.id, text=u'为了防止刷屏，请在私聊中使用此命令哦～')
 
 @bot.message_handler(commands=['lottery'])
 def send_welcome(message):
