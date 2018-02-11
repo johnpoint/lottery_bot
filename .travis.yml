@@ -4,3 +4,6 @@ python:
 # command to install dependencies
 install:
   - pip install -r requirements.txt
+script:
+# TODO:test suite
+  - python tests/build.py
