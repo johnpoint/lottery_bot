@@ -1,4 +1,4 @@
-# lottery_bot  [![Build Status](https://travis-ci.org/johnpoint/lottery_bot.svg?branch=master)](https://travis-ci.org/johnpoint/lottery_bot)
+# lottery_bot  [![Build Status](https://travis-ci.org/johnpoint/lottery_bot.svg?branch=master)](https://travis-ci.org/johnpoint/lottery_bot) [![GitHub version](https://badge.fury.io/gh/johnpoint%2Flottery_bot.svg)](https://badge.fury.io/gh/johnpoint%2Flottery_bot)
 ## 简介 ##
 
 一个用于抽奖的telegrambot
