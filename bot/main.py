@@ -8,7 +8,7 @@ import config
 import os
 import join
 
-TOKEN = os.environ.get('TOKEN') or config.TOKEN
+TOKEN = config.TOKEN
 bot = telebot.TeleBot(TOKEN)
 
 @bot.message_handler(commands=['start'])
