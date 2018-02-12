@@ -49,15 +49,15 @@ def get_lottery():
 def read_list(un):
     s = os.path.getsize('slist')
     if s < 4096:
-            with open('slist','r') as f:
-                rr = f.read()
-                return rr
+        with open('slist','r') as f:
+            rr = f.read()
+            return rr
+    else:
+        f = open('list', 'r')
+        l = f.read()
+        if l.find('%s' %un) == -1:
+            return u'由于telegram限制，我无法提供完整的名单 \n\n 但您   未参与   抽奖'
         else:
-            f = open('list', 'r')
-            l = f.read()
-            if l.find('%s' %un) == -1:
-                return u'由于telegram限制，我无法提供完整的名单 \n\n 但您   未参与   抽奖'
-            else:
             return u'由于telegram限制，我无法提供完整的名单 \n\n 但您   已参与   抽奖'
 
 def del_list():
