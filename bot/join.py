@@ -13,7 +13,7 @@ sys.setdefaultencoding('utf-8')
 def add_in(user):
     f = open('list', 'r')
     l = f.read()
-    if username is None:
+    if user is None:
         return '报名未成功，请设置username!'
     else:
         if l.find('%s' %user) == -1:
