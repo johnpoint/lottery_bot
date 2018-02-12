@@ -17,15 +17,20 @@ lottery - 开奖！[admin]
 
 ```
 git clone https://github.com/johnpoint/lottery_bot.git
-cd lottery_bot && cd bot
+cd lottery_bot
+pip install -r requirements.txt
+cd bot
 ```
 
-把username填入adminlist文件中，即为bot管理员**一行一个username**
+### 设置管理员 ###
 
-token填入config.py中
+username填入adminlist文件中，即为bot管理员
+
+**一行一个username**
+
+token填入config.py
 
 ```
-pip install pytelegramapi
 python main.py
 ```
 
