@@ -27,9 +27,9 @@ def add_in(user):
             rr = localtime + s + r
             print >> sf,rr
             sf.close()
-            return 1, '成功参加抽奖~'
+            return  '成功参加抽奖~'
         else:
-            return 0, '你已经参加了哦~请耐心等待开奖吧！'
+            return  '你已经参加了哦~请耐心等待开奖吧！'
 
 def get_lottery():
     count = -1
