@@ -36,9 +36,9 @@ python main.py
 
 ## TODO ##
 
--[ ] 显示设置username帮助
--[ ] 备份名单
--[ ] 防误删处理
+- [ ] 显示设置username帮助
+- [ ] 备份名单
+- [ ] 防误删处理
 
 **python 2.7测试通过，python3可能会出现奇奇怪怪的问题哦～**
 
