@@ -48,7 +48,7 @@ def get_lottery():
 
 def read_list(un):
     s = os.path.getsize('slist')
-    if s < 4096:
+    if s < 3096:
         with open('slist','r') as f:
             rr = f.read()
             return rr
