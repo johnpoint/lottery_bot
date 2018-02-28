@@ -9,6 +9,7 @@ import os
 import join
 
 TOKEN = config.TOKEN
+botname = config.name
 bot = telebot.TeleBot(TOKEN)
 
 @bot.message_handler(commands=['start'])
@@ -61,7 +62,7 @@ def send_list(message):
     else:
         bot.send_chat_action(message.chat.id, 'typing')
         markup = types.InlineKeyboardMarkup()
-        btn = types.InlineKeyboardButton('戳这里！', url = 'https://t.me/yahahaabot')
+        btn = types.InlineKeyboardButton('戳这里！', url = 'https://t.me/%s'%botname)
         markup.add(btn)
         msg_id = bot.send_message(chat_id=message.chat.id, text=u'为了防止刷屏，请在私聊中使用此命令哦～',reply_markup=markup).message_id
         time.sleep(5)
