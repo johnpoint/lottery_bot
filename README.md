@@ -32,6 +32,7 @@ username填入adminlist文件中，即为bot管理员
 **一行一个username**
 
 token填入config.py
+bot的username也填入config.py
 
 ```
 python main.py
