@@ -13,6 +13,8 @@ TOKEN = config.TOKEN
 botname = config.name
 bot = telebot.TeleBot(TOKEN)
 
+#36位uuid
+
 @bot.message_handler(commands=['start'])
 def send_welcome(message):
     if message.chat.type == 'private':
@@ -37,89 +39,18 @@ def send_welcome(message):
 
 @bot.message_handler(commands=['join'])
 def send_join(message):
-    if message.chat.type == 'private':
-        un = message.from_user.username
-        r = join.add_in(un)
-        bot.reply_to(message,r)
-    else:
-        un = message.from_user.username
-        r = join.add_in(un)
-        msg_id = bot.reply_to(message, r).message_id
-        time.sleep(5)
-        bot.delete_message(message.chat.id,msg_id)
 
-@bot.message_handler(commands=['list'])
-def send_list(message):
-    if message.chat.type == 'private' :
-        un = message.from_user.username
-        bot.send_chat_action(message.chat.id, 'typing')
-        r = join.read_list(un)
-        count = -1
-        for count, line in enumerate(open("list", 'r')):
-            pass
-        count += 1
-        rr = u'%s \n\n 目前共有%s人参与抽奖哦'%(r,count)
-        bot.reply_to(message,rr)
-    else:
-        bot.send_chat_action(message.chat.id, 'typing')
-        markup = types.InlineKeyboardMarkup()
-        btn = types.InlineKeyboardButton('戳这里！', url = 'https://t.me/%s'%botname)
-        markup.add(btn)
-        msg_id = bot.send_message(chat_id=message.chat.id, text=u'为了防止刷屏，请在私聊中使用此命令哦～',reply_markup=markup).message_id
-        time.sleep(5)
-        bot.delete_message(message.chat.id,msg_id)
-
-
-@bot.message_handler(commands=['lottery'])
+@bot.message_handler(commands=['roll'])
 def send_welcome(message):
-    un = message.from_user.username
-    f = open('adminlist', 'r')
-    l = f.read()
-    if message.chat.type == 'private':
-        if l.find('%s' %un) == -1:
-            bot.reply_to(message,'您没有权限哦')
-        else:
-            code, r = join.get_lottery()
-            bot.reply_to(message,r)
-    else:
-        if l.find('%s' %un) == -1:
-            msg_id = bot.reply_to(message,'您没有权限哦').message_id
-            time.sleep(5)
-            bot.delete_message(message.chat.id,msg_id)
-        else:
-            code, r = join.get_lottery()
-            bot.reply_to(message,r)
-            
+
 @bot.message_handler(commands=['new'])
 def new_post(message):
     uuid = getid.getuuid()
     uid = message.from_user.id
     un = message.from_user.username
     
-    
-    
-
-@bot.message_handler(commands=['clear'])
-def send_welcome(message):
-    un = message.from_user.username
-    f = open('adminlist', 'r')
-    l = f.read()
-    if message.chat.type == 'private':
-        if l.find('%s' %un) == -1:
-            bot.reply_to(message,'您没有权限哦')
-        else:
-            r = join.del_list()
-            bot.reply_to(message,r)
-    else:
-        if l.find('%s' %un) == -1:
-            msg_id = bot.reply_to(message,'您没有权限哦').message_id
-            time.sleep(5)
-            bot.delete_message(message.chat.id,msg_id)
-        else:
-            r = join.del_list()
-            msg_id = bot.reply_to(message,r).message_id
-            time.sleep(5)
-            bot.delete_message(message.chat.id,msg_id)
+@bot.message_handler(commands=['del'])
+def new_post(message):
 
 bot.polling()
 
