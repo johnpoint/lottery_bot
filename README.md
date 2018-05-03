@@ -6,7 +6,9 @@
 
 一个用于抽奖的telegram bot
 
-命令
+# 命令
+
+## bot1.0
 
 ```
 help - 帮助
@@ -14,6 +16,20 @@ join - 参与抽奖
 list - 显示参与名单
 clear - 清空名单[admin]
 lottery - 开奖！[admin]
+```
+
+## bot2.0
+
+*开发未完成*
+
+```
+new -新建一个抽奖（会生成唯一uuid）
+close - 关闭一个抽奖（后跟唯一uuid）
+del - 删除一个抽奖（后跟唯一uuid）
+join - 参与抽奖（后跟唯一uuid）
+list - 显示参与名单（后跟唯一uuid）
+roll - 开奖！（后跟唯一uuid）
+help - 帮助
 ```
 
 # 部署 #
