@@ -7,6 +7,7 @@ import config
 import os
 import join
 import getid
+import web
 
 TOKEN = config.TOKEN
 botname = config.name
@@ -92,6 +93,9 @@ def send_welcome(message):
 @bot.message_handler(commands=['new'])
 def new_post(message):
     uuid = getid.getuuid()
+    uid = message.from_user.id
+    un = message.from_user.username
+    
     
     
 
