@@ -48,10 +48,13 @@ def send_welcome(message):
 def new_post(message):
     pid = getid.getuuid()
     uid = message.from_user.id
-    dbc = db.new_po(pid)
-    dba = db.ula(uid,pid)
-    if dbc == 0:
-        bot.send_message(message.chat.id,u'新的抽奖已经准备就绪，抽奖口令：\n`%s`'%pid,parse_mode='Markdown')
+    dba = db.new_user(pid,uid)
+    if dba == 0:
+        dbc = db.new_po(pid)
+        if dbc == 0:
+            bot.send_message(message.chat.id,u'新的抽奖已经准备就绪，抽奖口令：\n`%s`'%pid,parse_mode='Markdown')
+        else:
+            bot.send_message(message.chat.id,'遇见错误，抽奖未能成功创建',parse_mode='Markdown')
     else:
         bot.send_message(message.chat.id,'遇见错误，抽奖未能成功创建',parse_mode='Markdown')
 
