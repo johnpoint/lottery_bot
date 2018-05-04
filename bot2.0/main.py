@@ -40,6 +40,19 @@ def send_welcome(message):
 
 @bot.message_handler(commands=['join'])
 def send_join(message):
+    if ' ' not in message.text :
+        bot.reply_to(message, '没有识别到有效的口令…')
+    else:
+        uid = message.from_user.id
+        key = message.text.split(' ')[1]
+        dbcode = db.join(uid,key)
+        if dbcode == 0:
+            bot.send_message(message.chat.id,'已成功加入抽奖')
+        elif dbcode == 1:
+            bot.send_message(message.chat.id,'此次操作不成功，可能已经加入抽奖')
+        else:
+            bot.send_message(message.chat.id,'未知错误')
+
 
 @bot.message_handler(commands=['roll'])
 def send_welcome(message):
@@ -48,10 +61,10 @@ def send_welcome(message):
 def new_post(message):
     pid = getid.getuuid()
     uid = message.from_user.id
-    dba = db.new_user(pid,uid)
-    if dba == 0:
-        dbc = db.new_po(pid)
-        if dbc == 0:
+    dbcode = db.new_user(pid,uid)
+    if dbcode == 0:
+        dbcode = db.new_po(pid)
+        if dbcode == 0:
             bot.send_message(message.chat.id,u'新的抽奖已经准备就绪，抽奖口令：\n`%s`'%pid,parse_mode='Markdown')
         else:
             bot.send_message(message.chat.id,'遇见错误，抽奖未能成功创建',parse_mode='Markdown')

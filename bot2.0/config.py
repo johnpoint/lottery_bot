@@ -5,3 +5,4 @@
 #bot token
 TOKEN = ''
 name = ''
+DB_PATH =''
